@@ -438,8 +438,6 @@
 
 ## contextmenu
 
-## Non-standardDeprecated
-
 ## data-\*
 
 ## dir
