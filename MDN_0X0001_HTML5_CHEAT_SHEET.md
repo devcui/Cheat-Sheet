@@ -6,7 +6,7 @@
 - [`<abbr>`](#abbr): represents an abbreviation or acronym.
 - [`<acronym>`](#acronym): indicate a sequence of characters that compose an acronym or abbreviation for a word.
 - [`<address>`](#address): indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
-- [`<area>`](#area)
+- [`<area>`](#area): defines an area inside an image map that has predefined clickable areas.
 - [`<article>`](#article)
 - [`<aside>`](#aside)
 - [`<audio>`](#audio)
@@ -299,6 +299,75 @@
 ```
 
 ## area
+
+### example
+
+```html
+<style>
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 260px;
+    height: 260px;
+  }
+</style>
+<map name="infographic">
+  <area
+    shape="poly"
+    coords="129,0,260,95,129,138"
+    href="https://developer.mozilla.org/docs/Web/HTTP"
+    target="_blank"
+    alt="HTTP"
+  />
+  <area
+    shape="poly"
+    coords="260,96,209,249,130,138"
+    href="https://developer.mozilla.org/docs/Web/HTML"
+    target="_blank"
+    alt="HTML"
+  />
+  <area
+    shape="poly"
+    coords="209,249,49,249,130,139"
+    href="https://developer.mozilla.org/docs/Web/JavaScript"
+    target="_blank"
+    alt="JavaScript"
+  />
+  <area
+    shape="poly"
+    coords="48,249,0,96,129,138"
+    href="https://developer.mozilla.org/docs/Web/API"
+    target="_blank"
+    alt="Web APIs"
+  />
+  <area
+    shape="poly"
+    coords="0,95,128,0,128,137"
+    href="https://developer.mozilla.org/docs/Web/CSS"
+    target="_blank"
+    alt="CSS"
+  />
+</map>
+<img
+  usemap="#infographic"
+  src="/media/examples/mdn-info.png"
+  alt="MDN infographic"
+/>
+```
+
+### attributes
+
+| name              | desc                                                                                         |
+| ----------------- | -------------------------------------------------------------------------------------------- |
+| [coords](#coords) | details the coordinates of the `shape` attribute in size,shape,and placement of an `<area>`. |
+
+#### coords
+
+| name   | desc                                                                                                                     |
+| ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| rect   | the value is `x1,y1,x2,y2`.The value specifies the coordinates of the top-left and bottom-right corner of the rectangle. |
+| circle | the value is `x,y,radius`, Value specifies the coordinates of the circle center and the radius.                          |
+| poly   | the value is `x1,y1,x2,y2,...,xn,yn`.Value specifies the coordinates of the edges of the polygon.                        |
 
 ## article
 
