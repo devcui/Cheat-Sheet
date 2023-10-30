@@ -135,7 +135,7 @@
 
 ## a
 
-example
+### example
 
 ```html
 <p>You can reach Michael at:</p>
@@ -159,7 +159,7 @@ example
 </ul>
 ```
 
-Using the download attribute to save a <canvas> as a PNG
+### Using the download attribute to save a `<canvas>` as a PNG
 
 ```html
 <style>
@@ -214,7 +214,7 @@ Using the download attribute to save a <canvas> as a PNG
 </script>
 ```
 
-link that opens a new tab/window
+### link that opens a new tab/window
 
 ```html
 <a target="_blank" href="https://www.wikipedia.org">
@@ -222,7 +222,7 @@ link that opens a new tab/window
 </a>
 ```
 
-link to a non-html resource
+### link to a non-html resource
 
 ```html
 <a href="2017-annual-report.ppt">2017 Annual Report (PowerPoint)</a>
