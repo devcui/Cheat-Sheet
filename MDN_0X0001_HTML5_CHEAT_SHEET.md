@@ -8,7 +8,7 @@
 - [`<address>`](#address): indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 - [`<area>`](#area): defines an area inside an image map that has predefined clickable areas.
 - [`<article>`](#article): represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable.
-- [`<aside>`](#aside)
+- [`<aside>`](#aside): represents a portion of a document whose content is only indirectly related to the document's main content.
 - [`<audio>`](#audio)
 - [`<b>`](#b)
 - [`<base>`](#base)
@@ -418,6 +418,42 @@
 ```
 
 ## aside
+
+### example
+
+```html
+<style>
+  aside {
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #29627e;
+    font-style: italic;
+    color: #29627e;
+  }
+
+  aside > p {
+    margin: 0.5rem;
+  }
+</style>
+
+<p>
+  Salamanders are a group of amphibians with a lizard-like appearance, including
+  short legs and a tail in both larval and adult forms.
+</p>
+
+<aside>
+  <p>The Rough-skinned Newt defends itself with a deadly neurotoxin.</p>
+</aside>
+
+<p>
+  Several species of salamander inhabit the temperate rainforest of the Pacific
+  Northwest, including the Ensatina, the Northwestern Salamander and the
+  Rough-skinned Newt. Most salamanders are nocturnal, and hunt for insects,
+  worms and other small creatures.
+</p>
+```
 
 ## audio
 
