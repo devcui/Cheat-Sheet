@@ -2,7 +2,7 @@
 
 # 1. ELEMENTS
 
-- [`<a>`](#a)
+- [`<a>`](#a): creates a hyperlink to web pages.
 - [`<abbr>`](#abbr)
 - [`<acronym>`](#acronym)
 - [`<address>`](#address)
@@ -134,6 +134,99 @@
 ## 1.1 ELEMENTS INTRODUCTION
 
 ## a
+
+example
+
+```html
+<p>You can reach Michael at:</p>
+
+<ul>
+  <!-- link -->
+  <li><a href="https://example.com">Website</a></li>
+  <!-- mail -->
+  <li><a href="mailto:m.bluth@example.com">Email</a></li>
+  <!-- phone -->
+  <li><a href="tel:+123456789">Phone</a></li>
+  <!-- linking to relative urls -->
+  <a href="//example.com">Scheme-relative URL</a>
+  <a href="/en-US/docs/Web/HTML">Origin-relative URL</a>
+  <a href="./p">Directory-relative URL</a>
+  <!-- linking to an element on the same page -->
+  <!-- <a> element links to the section below -->
+  <p><a href="#Section_further_down">Jump to the heading below</a></p>
+  <!-- heading to link to -->
+  <h2 id="Section_further_down">Section further down</h2>
+</ul>
+```
+
+Using the download attribute to save a <canvas> as a PNG
+
+```html
+<style>
+  html {
+    font-family: sans-serif;
+  }
+  canvas {
+    background: #fff;
+    border: 1px dashed;
+  }
+  a {
+    display: inline-block;
+    background: #69c;
+    color: #fff;
+    padding: 5px 10px;
+  }
+</style>
+
+<p>
+  Paint by holding down the mouse button and moving it.
+  <a href="" download="my_painting.png">Download my painting</a>
+</p>
+<canvas width="300" height="300"></canvas>
+
+<script type="text/javascript">
+  const canvas = document.querySelector("canvas");
+  const c = canvas.getContext("2d");
+  c.fillStyle = "hotpink";
+  let isDrawing;
+
+  function draw(x, y) {
+    if (isDrawing) {
+      c.beginPath();
+      c.arc(x, y, 10, 0, Math.PI * 2);
+      c.closePath();
+      c.fill();
+    }
+  }
+
+  canvas.addEventListener("mousemove", (event) =>
+    draw(event.offsetX, event.offsetY),
+  );
+  canvas.addEventListener("mousedown", () => (isDrawing = true));
+  canvas.addEventListener("mouseup", () => (isDrawing = false));
+
+  document
+    .querySelector("a")
+    .addEventListener(
+      "click",
+      (event) => (event.target.href = canvas.toDataURL()),
+    );
+</script>
+```
+
+link that opens a new tab/window
+
+```html
+<a target="_blank" href="https://www.wikipedia.org">
+  Wikipedia (opens in new tab)
+</a>
+```
+
+link to a non-html resource
+
+```html
+<a href="2017-annual-report.ppt">2017 Annual Report (PowerPoint)</a>
+```
 
 ## abbr
 
