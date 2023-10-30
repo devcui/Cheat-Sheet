@@ -7,7 +7,7 @@
 - [`<acronym>`](#acronym): indicate a sequence of characters that compose an acronym or abbreviation for a word.
 - [`<address>`](#address): indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 - [`<area>`](#area): defines an area inside an image map that has predefined clickable areas.
-- [`<article>`](#article)
+- [`<article>`](#article): represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable.
 - [`<aside>`](#aside)
 - [`<audio>`](#audio)
 - [`<b>`](#b)
@@ -370,6 +370,52 @@
 | poly   | the value is `x1,y1,x2,y2,...,xn,yn`.Value specifies the coordinates of the edges of the polygon.                        |
 
 ## article
+
+### example
+
+```html
+<style>
+  .forecast {
+    margin: 0;
+    padding: 0.3rem;
+    background-color: #eee;
+  }
+
+  .forecast > h1,
+  .day-forecast {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+  }
+
+  .day-forecast {
+    background: right/contain content-box border-box no-repeat
+      url("/media/examples/rain.svg") white;
+  }
+
+  .day-forecast > h2,
+  .day-forecast > p {
+    margin: 0.2rem;
+    font-size: 1rem;
+  }
+</style>
+
+<article class="forecast">
+  <h1>Weather forecast for Seattle</h1>
+  <article class="day-forecast">
+    <h2>03 March 2018</h2>
+    <p>Rain.</p>
+  </article>
+  <article class="day-forecast">
+    <h2>04 March 2018</h2>
+    <p>Periods of rain.</p>
+  </article>
+  <article class="day-forecast">
+    <h2>05 March 2018</h2>
+    <p>Heavy rain.</p>
+  </article>
+</article>
+```
 
 ## aside
 
