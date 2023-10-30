@@ -3,8 +3,8 @@
 # 1. ELEMENTS
 
 - [`<a>`](#a): creates a hyperlink to web pages.
-- [`<abbr>`](#abbr)
-- [`<acronym>`](#acronym)
+- [`<abbr>`](#abbr): represents an abbreviation or acronym.
+- [`<acronym>`](#acronym): indicate a sequence of characters that compose an acronym or abbreviation for a word.
 - [`<address>`](#address)
 - [`<area>`](#area)
 - [`<article>`](#article)
@@ -230,7 +230,48 @@
 
 ## abbr
 
+### example
+
+```html
+<p>
+  You can use <abbr>CSS</abbr> (Cascading Style Sheets) to style your
+  <abbr>HTML</abbr> (HyperText Markup Language). Using style sheets, you can
+  keep your <abbr>CSS</abbr> presentation layer and <abbr>HTML</abbr> content
+  layer separate. This is called "separation of concerns."
+</p>
+```
+
+### providing an expansion
+
+```html
+<p>Ashok's joke made me <abbr title="Laugh Out Loud">LOL</abbr> big time.</p>
+```
+
+### defining an abbreviation
+
+```html
+<p>
+  <dfn id="html"><abbr title="HyperText Markup Language">HTML</abbr> </dfn> is a
+  markup language used to create the semantics and structure of a web page.
+</p>
+
+<p>
+  A <dfn id="spec">Specification</dfn> (<abbr>spec</abbr>) is a document that
+  outlines in detail how a technology or API is intended to function and how it
+  is accessed.
+</p>
+```
+
 ## acronym
+
+### example
+
+```html
+<p>
+  The <acronym title="World Wide Web">WWW</acronym> is only a component of the
+  Internet.
+</p>
+```
 
 ## address
 
