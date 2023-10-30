@@ -9,7 +9,7 @@
 - [`<area>`](#area): defines an area inside an image map that has predefined clickable areas.
 - [`<article>`](#article): represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable.
 - [`<aside>`](#aside): represents a portion of a document whose content is only indirectly related to the document's main content.
-- [`<audio>`](#audio)
+- [`<audio>`](#audio): used to embed sound content in documents.
 - [`<b>`](#b)
 - [`<base>`](#base)
 - [`<bdi>`](#bdi)
@@ -159,7 +159,7 @@
 </ul>
 ```
 
-### Using the download attribute to save a `<canvas>` as a PNG
+### using the download attribute to save a `<canvas>` as a PNG
 
 ```html
 <style>
@@ -228,6 +228,18 @@
 <a href="2017-annual-report.ppt">2017 Annual Report (PowerPoint)</a>
 ```
 
+### technical summary
+
+|                      |                                                                                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Content categories   | Flow content, phrasing content, interactive content, palpable content.                                                                                             |
+| Permitted content    | Transparent, except that no descendant may be interactive content or an a element, and no descendant may have a specified tabindex attribute.                      |
+| Tag omission         | None, both the starting and ending tag are mandatory.                                                                                                              |
+| Permitted parents    | Any element that accepts phrasing content, or any element that accepts flow content, but not other `<a>` elements.                                                 |
+| Implicit ARIA role   | link when href attribute is present, otherwise generic                                                                                                             |
+| Permitted ARIA roles | When href attribute is present: button,checkbox,menuitem,menuitemcheckbox,menuitem,radio,option,radio,switch,tab,treeitem. When href attribute is not present: any |
+| DOM interface        | HTMLAnchorElement                                                                                                                                                  |
+
 ## abbr
 
 ### example
@@ -261,6 +273,18 @@
   is accessed.
 </p>
 ```
+
+### technical summary
+
+|                      |                                                       |
+| -------------------- | ----------------------------------------------------- |
+| Content categories   | Flow content, phrasing content, palpable content      |
+| Permitted content    | Phrasing content                                      |
+| Tag omission         | None, both the starting and ending tag are mandatory. |
+| Permitted parents    | Any element that accepts phrasing content             |
+| Implicit ARIA role   | No corresponding role                                 |
+| Permitted ARIA roles | Any                                                   |
+| DOM Interface        | HTMLElement                                           |
 
 ## acronym
 
@@ -297,6 +321,18 @@
   USA
 </address>
 ```
+
+### technical summary
+
+|                      |                                                                                                                                                                                                                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Content categories   | Flow content, palpable content.                                                                                                                                                                                                                                                            |
+| Permitted content    | Flow content, but with no nested `<address>` element, no heading content (`<hgroup>`, h1, h2, h3, h4, h5, h6), no sectioning content (`<article>`,`<aside>`, `<section>`, `<nav>`), and no `<header>` or `<footer>` element.                                                               |
+| Tag omission         | None, both the starting and ending tag are mandatory.                                                                                                                                                                                                                                      |
+| Permitted parents    | Any element that accepts flow content, but always excluding `<address>` elements (according to the logical principle of symmetry, if `<address>` tag, as a parent, can not have nested `<address>` element, then the same `<address>` content can not have `<address>` tag as its parent). |
+| Implicit ARIA role   | group                                                                                                                                                                                                                                                                                      |
+| Permitted ARIA roles | Any                                                                                                                                                                                                                                                                                        |
+| DOM interface        | HTMLElement Prior to Gecko 2.0 (Firefox 4), Gecko implemented this element using the HTMLSpanElement interface                                                                                                                                                                             |
 
 ## area
 
@@ -368,6 +404,18 @@
 | rect   | the value is `x1,y1,x2,y2`.The value specifies the coordinates of the top-left and bottom-right corner of the rectangle. |
 | circle | the value is `x,y,radius`, Value specifies the coordinates of the circle center and the radius.                          |
 | poly   | the value is `x1,y1,x2,y2,...,xn,yn`.Value specifies the coordinates of the edges of the polygon.                        |
+
+### technical summary
+
+|                      |                                                                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Content categories   | Flow content, phrasing content.                                                                                                    |
+| Permitted content    | None; it is a void element.                                                                                                        |
+| Tag omission         | Must have a start tag and must not have an end tag.                                                                                |
+| Permitted parents    | Any element that accepts phrasing content. The `<area>` element must have an ancestor `<map>`, but it need not be a direct parent. |
+| Implicit ARIA role   | link when href attribute is present, otherwise generic.                                                                            |
+| Permitted ARIA roles | No role permitted                                                                                                                  |
+| DOM interface        | HTMLAreaElement                                                                                                                    |
 
 ## article
 
@@ -455,7 +503,104 @@
 </p>
 ```
 
+### technical summary
+
+|                      |                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Content categories   | Flow content, sectioning content, palpable content.                                                                       |
+| Permitted content    | Flow content.                                                                                                             |
+| Tag omission         | None, both the starting and ending tag are mandatory.                                                                     |
+| Permitted parents    | Any element that accepts flow content. Note that an `<aside>` element must not be a descendant of an `<address>` element. |
+| Implicit ARIA role   | complementary.                                                                                                            |
+| Permitted ARIA roles | feed, none, note, presentation, region, search                                                                            |
+| DOM interface        | HTMLElement                                                                                                               |
+
 ## audio
+
+### example
+
+```html
+<figure>
+  <figcaption>Listen to the T-Rex:</figcaption>
+  <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+    <a href="/media/cc0-audio/t-rex-roar.mp3"> Download audio </a>
+  </audio>
+</figure>
+```
+
+### `<audio>` element with `<source>` element
+
+```html
+<!-- This example specifies which audio track to embed using the src attribute on a nested <source> element rather than directly on the <audio> element. -->
+
+<audio controls>
+  <source src="foo.wav" type="audio/wav" />
+  <a href="foo.wav">Download WAV audio</a>.
+</audio>
+```
+
+### `<audio>` with multiple `<source>` elements
+
+```html
+<!-- The browser tries to load the first source element (Opus) if it is able to play it; if not it falls back to the second (Vorbis) and finally back to MP3: -->
+
+<audio controls>
+  <source src="foo.opus" type="audio/ogg; codecs=opus" />
+  <source src="foo.ogg" type="audio/ogg; codecs=vorbis" />
+  <source src="foo.mp3" type="audio/mpeg" />
+</audio>
+```
+
+### Attributes
+
+| name                  | desc                                                                                                                                                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| autoplay              | Automatically playback the media                                                                                                                                                                              |
+| controls              | The browser will offer controls to allow the user to control audio playback, including volume, seeking, and pause/resume playback.                                                                            |
+| controlslist          | Helps the browser select what controls to show for the audio element whenever the browser shows its own set of controls.The allowed values are `nodownload`,`nofullscreen` and `noremoteplayback`             |
+| disableremoteplayback | A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.)        |
+| loop                  | A Boolean attribute: if specified, the audio player will automatically seek back to the start upon reaching the end of the audio.                                                                             |
+| muted                 | A Boolean attribute that indicates whether the audio will be initially silenced. Its default value is false.                                                                                                  |
+| preload               | This enumerated attribute is intended to provide a hint to the browser about what the author thinks will lead to the best user experience. The allowd values are `none`,`metadata`,`auto` ,default was `auto` |
+| src                   | The URL of the audio to embed.                                                                                                                                                                                |
+
+### Events
+
+| Event name     | Fired when                                                                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| audioprocess   | The input buffer of a ScriptProcessorNode is ready to be processed.                                                                                                                  |
+| canplay        | The browser can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.          |
+| canplaythrough | The browser estimates it can play the media up to its end without stopping for content buffering.                                                                                    |
+| complete       | The rendering of an OfflineAudioContext is terminated.                                                                                                                               |
+| durationchange | The duration attribute has been updated.                                                                                                                                             |
+| emptied        | The media has become empty; for example, this event is sent if the media has already been loaded (or partially loaded), and the HTMLMediaElement.load method is called to reload it. |
+| ended          | Playback has stopped because the end of the media was reached.                                                                                                                       |
+| loadeddata     | The first frame of the media has finished loading.                                                                                                                                   |
+| loadedmetadata | The metadata has been loaded.                                                                                                                                                        |
+| loadstart      | Fired when the browser has started to load the resource.                                                                                                                             |
+| pause          | Playback has been paused.                                                                                                                                                            |
+| play           | Playback has begun.                                                                                                                                                                  |
+| playing        | Playback is ready to start after having been paused or delayed due to lack of data.                                                                                                  |
+| ratechange     | The playback rate has changed.                                                                                                                                                       |
+| seeked         | A seek operation completed.                                                                                                                                                          |
+| seeking        | A seek operation began.                                                                                                                                                              |
+| stalled        | The user agent is trying to fetch media data, but data is unexpectedly not forthcoming.                                                                                              |
+| suspend        | Media data loading has been suspended.                                                                                                                                               |
+| timeupdate     | The time indicated by the currentTime attribute has been updated.                                                                                                                    |
+| volumechange   | The volume has changed.                                                                                                                                                              |
+| waiting        | Playback has stopped because of a temporary lack of data                                                                                                                             |
+
+### technical summary
+
+|                      |                                                                                                                                                                                                                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Content categories   | Flow content, phrasing content, embedded content. If it has a controls attribute: interactive content and palpable content.                                                                                                                                                                                             |
+| Permitted content    | If the element has a src attribute: zero or more <track> elements followed by transparent content that contains no <audio> or <video> media elements.Else: zero or more <source> elements followed by zero or more <track> elements followed by transparent content that contains no <audio> or <video> media elements. |
+| Tag omission         | None, both the starting and ending tag are mandatory.                                                                                                                                                                                                                                                                   |
+| Permitted parents    | Any element that accepts embedded content.                                                                                                                                                                                                                                                                              |
+| Implicit ARIA role   | No corresponding role                                                                                                                                                                                                                                                                                                   |
+| Permitted ARIA roles | application                                                                                                                                                                                                                                                                                                             |
+| DOM interface        | HTMLAudioElement                                                                                                                                                                                                                                                                                                        |
 
 ## b
 
