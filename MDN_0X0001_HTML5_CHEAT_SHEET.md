@@ -564,7 +564,7 @@
 | preload               | This enumerated attribute is intended to provide a hint to the browser about what the author thinks will lead to the best user experience. The allowd values are `none`,`metadata`,`auto` ,default was `auto` |
 | src                   | The URL of the audio to embed.                                                                                                                                                                                |
 
-### Events
+### events
 
 | Event name     | Fired when                                                                                                                                                                           |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
