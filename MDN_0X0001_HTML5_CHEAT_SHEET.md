@@ -5,7 +5,7 @@
 - [`<a>`](#a): creates a hyperlink to web pages.
 - [`<abbr>`](#abbr): represents an abbreviation or acronym.
 - [`<acronym>`](#acronym): indicate a sequence of characters that compose an acronym or abbreviation for a word.
-- [`<address>`](#address)
+- [`<address>`](#address): indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 - [`<area>`](#area)
 - [`<article>`](#article)
 - [`<aside>`](#aside)
@@ -274,6 +274,29 @@
 ```
 
 ## address
+
+### example
+
+```html
+<p>Contact the author of this page:</p>
+
+<address>
+  <a href="mailto:jim@rock.com">jim@rock.com</a><br />
+  <a href="tel:+13115552368">(311) 555-2368</a>
+</address>
+
+<address>
+  You can contact author at
+  <a href="http://www.somedomain.com/contact">www.somedomain.com</a>.<br />
+  If you see any bugs, please
+  <a href="mailto:webmaster@somedomain.com">contact webmaster</a>.<br />
+  You may also want to visit us:<br />
+  Mozilla Foundation<br />
+  331 E Evelyn Ave<br />
+  Mountain View, CA 94041<br />
+  USA
+</address>
+```
 
 ## area
 
